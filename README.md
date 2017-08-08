@@ -1,11 +1,12 @@
 # ansible-sumocollector
 ###### Ansible role to install SumoCollector. This role was inspired by modcloth's SumoCollector role, but it goes one step further by including the ability to include additional log paths.
 
-## Chromatic Specific Notes
+## Example Setup Notes
 ```
-These are the standard paths for web and PHP logs for Chromatic webheads.
-This entire block needs to go under the 'vars' section of the of the
-playbook. The access_id and access_key need to be updated per account.
+These following exampled setups up log aggregation for 
+Apache2 and PHP-FPM logs on Ubuntu 14.04 and 16.04.
+This entire block needs to go under the 'vars' section of the
+playbook. The access_id and access_key need to be set per SumoLogic account.
 
 sumologic_collector_application_log_path:
    - name: "APACHE LOGS"
