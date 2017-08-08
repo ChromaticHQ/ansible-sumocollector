@@ -1,6 +1,28 @@
 # ansible-sumocollector
 ###### Ansible role to install SumoCollector. This role was inspired by modcloth's SumoCollector role, but it goes one step further by including the ability to include additional log paths.
 
+## Example Setup Notes
+```
+These following exampled setups up log aggregation for 
+Apache2 and PHP-FPM logs on Ubuntu 14.04 and 16.04.
+This entire block needs to go under the 'vars' section of the
+playbook. The access_id and access_key need to be set per SumoLogic account.
+
+sumologic_collector_application_log_path:
+   - name: "APACHE LOGS"
+     path: "/var/log/apache2/*.log"
+     use_multiline: false
+     category: "WEB"
+   - name: "PHP-FPM ERROR LOG"
+     path: "/var/log/php7*.log"
+     use_multiline: false
+     category: "PHP-FPM"
+sumologic_collector_default_log_path: []
+sumologic_collector_accessid: "accessid"
+sumologic_collector_accesskey: "accesskey"
+sumocollector_installer_download: "https://collectors.sumologic.com/rest/download/deb/64"
+```
+
 ## Role Variables
 
 ### RedHat OS Family
